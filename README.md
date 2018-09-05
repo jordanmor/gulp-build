@@ -4,6 +4,7 @@ Set up a Gulp build process to prepare a front end website for deployment
 Treehouse Full Stack JavaScript Techdegree - Project 8
 
 **Main Project Goals**
+- Use gulp to implement a quick and efficient professional workflow using JavaScript, NPM and Node
 - Concatenate and minify JavaScript files
 - Compile SCSS into CSS in a concatenated and minified file
 - Generate JavaScript and CSS source maps
