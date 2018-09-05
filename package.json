@@ -1,0 +1,23 @@
+{
+  "name": "gulp-build",
+  "version": "1.0.0",
+  "description": "Set up a Gulp build process to prepare a front end website for deployment",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanmor/gulp-build.git"
+  },
+  "keywords": [],
+  "author": "Jordan Mor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanmor/gulp-build/issues"
+  },
+  "homepage": "https://github.com/jordanmor/gulp-build#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
