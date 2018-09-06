@@ -5,6 +5,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
+const del = require('del');
+
 
 const paths = {
   scripts: {
@@ -45,3 +47,5 @@ gulp.task('images', () => {
     .pipe(imagemin())
     .pipe(gulp.dest(paths.images.dest));
 });
+
+gulp.task('clean', () => del(['dist/**', '!dist']));
