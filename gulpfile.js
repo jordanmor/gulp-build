@@ -4,6 +4,7 @@ const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
+const imagemin = require('gulp-imagemin');
 
 const paths = {
   scripts: {
@@ -14,6 +15,10 @@ const paths = {
     src: 'src/sass/**/*.scss',
     dest: 'dist/styles/'
   },
+  images: {
+    src: 'src/images/*',
+    dest: 'dist/content/'
+  }
 };
 
 gulp.task('scripts', () => {
@@ -33,4 +38,10 @@ gulp.task('styles', () => {
     .pipe(cleanCSS())
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths.styles.dest));
+});
+
+gulp.task('images', () => {
+  return gulp.src(paths.images.src)
+    .pipe(imagemin())
+    .pipe(gulp.dest(paths.images.dest));
 });
