@@ -66,6 +66,8 @@ gulp.task('serve', () => {
   browserSync.init({
     server: './dist/'
   });
+
+  gulp.watch(paths.styles.src, gulp.parallel('styles'));
 });
 
 gulp.task('default', gulp.series('build', 'serve'));
