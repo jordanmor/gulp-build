@@ -49,3 +49,13 @@ gulp.task('images', () => {
 });
 
 gulp.task('clean', () => del(['dist/**', '!dist']));
+
+gulp.task('build', 
+  gulp.series('clean',
+    gulp.parallel('images', 'scripts', 'styles', done => {
+      gulp.src(['src/index.html', 'src/icons/**'], {base: 'src/'})
+        .pipe(gulp.dest('dist'));
+      done();
+    })
+  )
+);
