@@ -6,7 +6,8 @@ const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
-
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
 
 const paths = {
   scripts: {
@@ -39,7 +40,8 @@ gulp.task('styles', () => {
     .pipe(concat('all.min.css'))
     .pipe(cleanCSS())
     .pipe(sourcemaps.write('./maps'))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(gulp.dest(paths.styles.dest))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('images', () => {
@@ -59,3 +61,11 @@ gulp.task('build',
     })
   )
 );
+
+gulp.task('serve', () => {
+  browserSync.init({
+    server: './dist/'
+  });
+});
+
+gulp.task('default', gulp.series('build', 'serve'));
