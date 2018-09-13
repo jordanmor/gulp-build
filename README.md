@@ -13,6 +13,11 @@ Treehouse Full Stack JavaScript Techdegree - Project 8
 - The command line *gulp* command runs the build task and serves the project using a local web server
 - Watch for changes to any .scss files
 
+**Project Completed:** 09/13/2018  
+**Grade:** Exceeds Expectations
+
+---
+
 **Installation Instructions:**
 
 1. git clone https://github.com/jordanmor/gulp-build.git
