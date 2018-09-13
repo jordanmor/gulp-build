@@ -41,7 +41,7 @@ gulp.task('styles', () => {
     .pipe(cleanCSS())
     .pipe(sourcemaps.write('./maps'))
     .pipe(gulp.dest(paths.styles.dest))
-    .pipe(reload({stream: true})); // Reloads browser when change to .scss files detected
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('images', () => {
@@ -50,11 +50,9 @@ gulp.task('images', () => {
     .pipe(gulp.dest(paths.images.dest));
 });
 
-// "gulp clean" will delete all files and folders inside the dist folder, but not the dist folder itself
 gulp.task('clean', () => del(['dist/**', '!dist']));
 
 gulp.task('build', 
-  // By using gulp.series, the clean task will fully complete before the other tasks
   gulp.series('clean',
     gulp.parallel('images', 'scripts', 'styles', done => {
       gulp.src(['src/index.html', 'src/icons/**'], {base: 'src/'})
@@ -66,7 +64,7 @@ gulp.task('build',
 
 gulp.task('serve', () => {
   browserSync.init({
-    server: './dist/' // website served from dist folder
+    server: './dist/'
   });
 
   gulp.watch(paths.styles.src, gulp.parallel('styles'));
